@@ -1,0 +1,14 @@
+name: DMAC
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - jupyter
+  - cartopy
+  - geoviews
+  - holoviews
+  - hvplot
+  - numpy
+  - panel
+  - xarray

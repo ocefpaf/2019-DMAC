@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Filipe Fernandes">
+  <meta name="dcterms.date" content="2018-05-01">
+  <title>State of the IOOS Tools</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="slides.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">State of the IOOS Tools</h1>
+  <p class="author">Filipe Fernandes</p>
+  <p class="date">May 1, 2018</p>
+</section>
+
+<section id="longer-title" class="slide level1">
+<h1>Longer title</h1>
+<p>The State of IOOS <strong>(and some non-IOOS Python)</strong> tools <strong>(and its 105 repositories!?)</strong></p>
+</section>
+<section id="whoami" class="slide level1">
+<h1><code>whoami</code></h1>
+<p>Filipe Fernandes</p>
+<ul>
+<li class="fragment">Physical Oceanographer</li>
+<li class="fragment">Data Plumber</li>
+<li class="fragment">Code Janitor</li>
+<li class="fragment">CI babysitter</li>
+<li class="fragment">Amazon-Dash-Button for conda-forge</li>
+</ul>
+</section>
+<section id="some-background" class="slide level1">
+<h1>Some background</h1>
+<ul>
+<li class="fragment">year 01: skill score (SECOORA), system-test notebooks, packaging (ioos channel).</li>
+<li class="fragment">year 02: python 3 updates, CIs maintenance, packaging (conda-forge channel).</li>
+<li class="fragment">year 03: CIs maintenance, Data Demo Center, some new tools, packaging.</li>
+<li class="fragment">year 04: CIs maintenance, some Data Demo Center, less new tools, packaging.</li>
+<li class="fragment">year 05: CIs maintenance, Data Demo Center(?), new tools(?), packaging.</li>
+</ul>
+</section>
+<section id="motivation" class="slide level1">
+<h1>Motivation</h1>
+<ul>
+<li class="fragment">What tools are ready for Python 2.7 EOL?</li>
+<li class="fragment">CI maintenance burden (2-3 times a year we need to re-do the CIs configurations).</li>
+<li class="fragment">Focus on the “good and useful” tools.</li>
+</ul>
+<div class="fragment">
+<p>Secret motivation: make year 06 all about new tools and the Data Demo Center!</p>
+</div>
+<div class="fragment">
+<p>Spoiler: our tools are 100% py3k compatible!</p>
+</div>
+</section>
+<section id="goals" class="slide level1">
+<h1>Goals</h1>
+<ul>
+<li class="fragment">Reduce the maintenance burden.</li>
+<li class="fragment">Focus on the essential tools.</li>
+<li class="fragment">identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?)</li>
+<li class="fragment">Increase the “bus” factor by making it easier for newcomers.</li>
+<li class="fragment">Create a policy for releases, <em>sdist</em> publication, and packaging.</li>
+</ul>
+</section>
+<section id="how" class="slide level1">
+<h1>How?</h1>
+<ul>
+<li class="fragment">Finding the active and inactive projects and deprecating the latter.</li>
+<li class="fragment">Consolidate similar tools.</li>
+<li class="fragment">Adding auto-PyPI <em>sdist</em> publication.</li>
+<li class="fragment">Adopt RERO</li>
+</ul>
+</section>
+<section id="ioos-tools-health-metric" class="slide level1">
+<h1>IOOS tools “health metric”</h1>
+<p><a href="https://bit.ly/2019-DMAC">https://bit.ly/2019-DMAC</a></p>
+<ul>
+<li class="fragment">The data was collected on April 27th 2019.</li>
+<li class="fragment">The metric is based on: last commit, last release, contributors, py3k testing</li>
+</ul>
+</section>
+<section id="ioos-tools" class="slide level1">
+<h1>IOOS tools</h1>
+<table>
+<thead>
+<tr class="header">
+<th>software</th>
+<th>last commit</th>
+<th>last release</th>
+<th>contributors</th>
+<th>py3k testing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>compliance-checker</td>
+<td>2019-04-24</td>
+<td>2019-02-27</td>
+<td>28</td>
+<td>py37</td>
+</tr>
+<tr class="even">
+<td>erddapy</td>
+<td>2019-04-21</td>
+<td>2019-03-06</td>
+<td>3</td>
+<td>py37</td>
+</tr>
+<tr class="odd">
+<td>cc-plugin-glider</td>
+<td>2019-02-20</td>
+<td>2019-02-20</td>
+<td>8</td>
+<td>py36</td>
+</tr>
+<tr class="even">
+<td>cc-plugin-ugrid</td>
+<td>2019-01-09</td>
+<td>2019-01-09</td>
+<td>5</td>
+<td>py36</td>
+</tr>
+<tr class="odd">
+<td>pyoos</td>
+<td>2019-02-24</td>
+<td>2017-03-30</td>
+<td>11</td>
+<td>py35</td>
+</tr>
+<tr class="even">
+<td>ciso</td>
+<td>2019-02-07</td>
+<td>2019-02-07</td>
+<td>2</td>
+<td>py37</td>
+</tr>
+<tr class="odd">
+<td>cc-plugin-ncei</td>
+<td>2019-01-16</td>
+<td>2017-10-17</td>
+<td>4</td>
+<td>py36</td>
+</tr>
+<tr class="even">
+<td>thredds_crawler</td>
+<td>2018-03-16</td>
+<td>2018-03-16</td>
+<td>5</td>
+<td>py36</td>
+</tr>
+<tr class="odd">
+<td>sensorml2iso</td>
+<td>2018-09-12</td>
+<td>2018-08-22</td>
+<td>6</td>
+<td>py36</td>
+</tr>
+<tr class="even">
+<td>odvc</td>
+<td>2018-03-02</td>
+<td>2018-03-02</td>
+<td>3</td>
+<td>py36</td>
+</tr>
+<tr class="odd">
+<td>petulant-bear</td>
+<td>2016-02-03</td>
+<td>2016-02-03</td>
+<td>6</td>
+<td>py37</td>
+</tr>
+<tr class="even">
+<td>wicken</td>
+<td>2016-02-03</td>
+<td>2016-02-03</td>
+<td>5</td>
+<td>py35</td>
+</tr>
+<tr class="odd">
+<td>qartod</td>
+<td>2016-14-14</td>
+<td>NA</td>
+<td>4</td>
+<td>py35</td>
+</tr>
+<tr class="even">
+<td>cc-plugin-sgrid</td>
+<td>2016-02-04</td>
+<td>NA</td>
+<td>1</td>
+<td>py35</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="other-tools-pyoceans" class="slide level1">
+<h1>Other Tools (pyoceans)</h1>
+<ul>
+<li><code>gridgeo</code></li>
+<li><code>ioos_tools</code></li>
+<li><code>pocean-core</code></li>
+<li><del><code>erddapy</code></del></li>
+</ul>
+<div class="fragment">
+<p>There are more <a href="https://github.com/pyoceans">tools in the pyoceans org</a>. I only listed those that I know are used in IOOS.</p>
+</div>
+</section>
+<section id="other-tools-rps" class="slide level1">
+<h1>Other Tools (RPS)</h1>
+<p>WARNING: This list is not comprehensive! Also, we are not expecting any action from ASA-RPS! The goal is to identify what tools here are important to the IOOS community!</p>
+</section>
+<section id="other-tools-rps-list" class="slide level1">
+<h1>Other Tools (RPS) list</h1>
+<ul>
+<li><code>qartod</code> (not a rare pókemon)</li>
+<li><code>paegan-transport</code></li>
+<li><code>paegan-viz</code></li>
+<li><code>paegan</code></li>
+<li><code>sci-wms</code></li>
+<li><code>thredds_crawler_matlab</code></li>
+<li><code>udunitspy</code> (IOOS adopted <code>cf-units</code>)</li>
+</ul>
+</section>
+<section id="other-tools-axiom" class="slide level1">
+<h1>Other Tools (Axiom)</h1>
+<p>WARNING: This list is not comprehensive! Also, we are not expecting any action from Axiom! The goal is to identify what tools here are used and important to the IOOS community!</p>
+</section>
+<section id="other-tools-axiom-list" class="slide level1">
+<h1>Other Tools (Axiom) list</h1>
+<ul>
+<li><code>codar2netcdf</code></li>
+<li><code>modflow2netcdf</code></li>
+<li><code>wera2netcdf</code></li>
+<li><code>epic2cf</code></li>
+<li><code>pyncml</code></li>
+</ul>
+</section>
+<section id="other-tools-axiom-continuation" class="slide level1">
+<h1>Other Tools (Axiom) continuation</h1>
+<ul>
+<li><code>pygc</code></li>
+<li><code>sci-wms</code> (déjà vu)</li>
+<li><code>pyaxiom</code> (predecessor of <code>pocean-core</code>)</li>
+<li><code>ioos_qc</code> (<code>qartod</code> pókemon evolved form)</li>
+<li><code>pngpack</code></li>
+</ul>
+</section>
+<section id="other-other-tools" class="slide level1">
+<h1>Other-Other Tools</h1>
+<ul>
+<li>MetOffice stack: <code>iris</code>, <code>cartopy</code>, <code>nc-time-axis</code>, and <code>cf-units</code></li>
+<li>PyViz: <code>bokeh</code>, <code>panel</code>, <code>hvplot</code></li>
+<li><code>bagit</code></li>
+<li><code>folium</code></li>
+<li><code>geopandas</code></li>
+<li><code>gsw</code></li>
+<li><code>matplotlib</code></li>
+<li><code>nco</code></li>
+</ul>
+</section>
+<section id="other-other-tools-continuation" class="slide level1">
+<h1>Other-Other Tools (continuation)</h1>
+<ul>
+<li><code>netcdf4</code></li>
+<li><code>pysgrid</code></li>
+<li><code>pyugrid</code></li>
+<li><code>utide</code></li>
+<li><code>windrose</code></li>
+<li><code>xarray</code></li>
+<li><code>gridded</code></li>
+</ul>
+<div class="fragment">
+<p>… and many more.</p>
+</div>
+</section>
+<section id="repositories" class="slide level1">
+<h1>Repositories</h1>
+<ul>
+<li>catalog-docker-base</li>
+<li>catalog-docker-ckan</li>
+<li>catalog-docker-ckan-harvest</li>
+<li>catalog-docker-pycsw</li>
+<li>comt</li>
+<li>comt-landing</li>
+<li>comt_1_archive</li>
+<li>comt_2</li>
+<li>configuration-management</li>
+<li>configuration-management-hugo</li>
+</ul>
+</section>
+<section id="repository-clean-up-recommendations" class="slide level1">
+<h1>Repository clean-up Recommendations</h1>
+<ul>
+<li class="fragment">Aggressive archiving of repositories to avoid user confusion.</li>
+<li class="fragment">Do not delete so we can revert the archived version if needed.</li>
+<li class="fragment">Add a README.{md.txt,rst} file to all active repositories!</li>
+<li class="fragment">Aggregate pages and docs into a sub-org/prefix.</li>
+<li class="fragment">Add Repo Health app.</li>
+</ul>
+</section>
+<section id="code-gallery" class="slide level1">
+<h1>Code gallery</h1>
+<p><img src="images/code-gallery.png" height=450></p>
+<p><a href="http://ioos.github.io/notebooks_demos/code_gallery">http://ioos.github.io/notebooks_demos/code_gallery</a></p>
+</section>
+<section id="pyviz-demo" class="slide level1">
+<h1>PyViz demo</h1>
+<p><a href="https://mybinder.org/v2/gh/ocefpaf/2019-DMAC/master?filepath=notebooks/GreatLakes_Dashboard.ipynb"> <img src="images/jupyterhub.svg" height=75 style="background-color:white"> </a></p>
+</section>
+<section id="end" class="slide level1">
+<h1>end</h1>
+<p><img data-src="images/twitter-github.png" /></p>
+<p>(<a href="(https://github.com/ocefpaf)">ocefpaf</a>)</p>
+<p><a href="https://ocefpaf.github.io/2019-DMAC">https://ocefpaf.github.io/2019-DMAC</a></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
