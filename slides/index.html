@@ -42,11 +42,11 @@
 
 <section id="longer-title" class="slide level1">
 <h1>Longer title</h1>
-<p>The State of IOOS <strong>(and some non-IOOS Python)</strong> tools <strong>(and its 105 repositories!?)</strong></p>
+<p>The State of IOOS <strong>(and some non-IOOS)</strong> <strong>(Python)</strong> tools <strong>(and its 105 repositories!?)</strong></p>
 </section>
 <section id="whoami" class="slide level1">
 <h1><code>whoami</code></h1>
-<p>Filipe Fernandes</p>
+<p><a href="(https://github.com/ocefpaf)">ocefpaf</a></p>
 <ul>
 <li class="fragment">Physical Oceanographer</li>
 <li class="fragment">Data Plumber</li>
@@ -54,6 +54,9 @@
 <li class="fragment">CI babysitter</li>
 <li class="fragment">Amazon-Dash-Button for conda-forge</li>
 </ul>
+<div class="fragment">
+<p>I’ll probably have to add “GH Marie Kondo” after this presentation.</p>
+</div>
 </section>
 <section id="some-background" class="slide level1">
 <h1>Some background</h1>
@@ -65,29 +68,28 @@
 <li class="fragment">year 05: CIs maintenance, Data Demo Center(?), new tools(?), packaging.</li>
 </ul>
 </section>
-<section id="motivation" class="slide level1">
-<h1>Motivation</h1>
+<section id="goals" class="slide level1">
+<h1>Goals</h1>
 <ul>
+<li class="fragment">Streamline CI maintenance (2-3 times a year we re-do the CIs configurations).</li>
+<li class="fragment">Reduce the overall maintenance burden.</li>
+<li class="fragment">Focus on the essential tools, deprecate what is not used.</li>
 <li class="fragment">What tools are ready for Python 2.7 EOL?</li>
-<li class="fragment">CI maintenance burden (2-3 times a year we need to re-do the CIs configurations).</li>
-<li class="fragment">Focus on the “good and useful” tools.</li>
 </ul>
-<div class="fragment">
-<p>Secret motivation: make year 06 all about new tools and the Data Demo Center!</p>
-</div>
 <div class="fragment">
 <p>Spoiler: our tools are 100% py3k compatible!</p>
 </div>
 </section>
-<section id="goals" class="slide level1">
-<h1>Goals</h1>
+<section id="goals-continued" class="slide level1">
+<h1>Goals (continued)</h1>
 <ul>
-<li class="fragment">Reduce the maintenance burden.</li>
-<li class="fragment">Focus on the essential tools.</li>
-<li class="fragment">identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?)</li>
+<li class="fragment">Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?).</li>
 <li class="fragment">Increase the “bus” factor by making it easier for newcomers.</li>
 <li class="fragment">Create a policy for releases, <em>sdist</em> publication, and packaging.</li>
 </ul>
+<div class="fragment">
+<p>Secret motivation: make year 06 all about new tools and the Data Demo Center!</p>
+</div>
 </section>
 <section id="how" class="slide level1">
 <h1>How?</h1>
@@ -95,7 +97,8 @@
 <li class="fragment">Finding the active and inactive projects and deprecating the latter.</li>
 <li class="fragment">Consolidate similar tools.</li>
 <li class="fragment">Adding auto-PyPI <em>sdist</em> publication.</li>
-<li class="fragment">Adopt RERO</li>
+<li class="fragment">Adopt a Release Early Release Often (RERO) policy.</li>
+<li class="fragment">Write documentation of GH good practices.</li>
 </ul>
 </section>
 <section id="ioos-tools-health-metric" class="slide level1">
@@ -103,7 +106,7 @@
 <p><a href="https://bit.ly/2019-DMAC">https://bit.ly/2019-DMAC</a></p>
 <ul>
 <li class="fragment">The data was collected on April 27th 2019.</li>
-<li class="fragment">The metric is based on: last commit, last release, contributors, py3k testing</li>
+<li class="fragment">The metric is based on: last commit, last release, number contributors, and py3k testing</li>
 </ul>
 </section>
 <section id="ioos-tools" class="slide level1">
@@ -169,6 +172,20 @@
 <td>py36</td>
 </tr>
 <tr class="even">
+<td>sensorml2iso</td>
+<td>2018-09-12</td>
+<td>2018-08-22</td>
+<td>6</td>
+<td>py36</td>
+</tr>
+<tr class="odd">
+<td>odvc</td>
+<td>2019-04-27</td>
+<td>2018-03-02</td>
+<td>3</td>
+<td>py37</td>
+</tr>
+<tr class="even">
 <td>thredds_crawler</td>
 <td>2018-03-16</td>
 <td>2018-03-16</td>
@@ -176,25 +193,11 @@
 <td>py36</td>
 </tr>
 <tr class="odd">
-<td>sensorml2iso</td>
-<td>2018-09-12</td>
-<td>2018-08-22</td>
-<td>6</td>
-<td>py36</td>
-</tr>
-<tr class="even">
-<td>odvc</td>
-<td>2018-03-02</td>
-<td>2018-03-02</td>
-<td>3</td>
-<td>py36</td>
-</tr>
-<tr class="odd">
 <td>petulant-bear</td>
 <td>2016-02-03</td>
 <td>2016-02-03</td>
 <td>6</td>
-<td>py37</td>
+<td>py35</td>
 </tr>
 <tr class="even">
 <td>wicken</td>
@@ -229,23 +232,23 @@
 <li><del><code>erddapy</code></del></li>
 </ul>
 <div class="fragment">
-<p>There are more <a href="https://github.com/pyoceans">tools in the pyoceans org</a>. I only listed those that I know are used in IOOS.</p>
+<p>There are more <a href="https://github.com/pyoceans">tools in the pyoceans org</a>. I only listed those that I know are used by IOOS in some places.</p>
 </div>
 </section>
-<section id="other-tools-rps" class="slide level1">
-<h1>Other Tools (RPS)</h1>
+<section id="other-tools-asa-rps" class="slide level1">
+<h1>Other Tools (ASA-RPS)</h1>
 <p>WARNING: This list is not comprehensive! Also, we are not expecting any action from ASA-RPS! The goal is to identify what tools here are important to the IOOS community!</p>
 </section>
-<section id="other-tools-rps-list" class="slide level1">
-<h1>Other Tools (RPS) list</h1>
+<section id="other-tools-asa-rps-list" class="slide level1">
+<h1>Other Tools (ASA-RPS) list</h1>
 <ul>
 <li><code>qartod</code> (not a rare pókemon)</li>
-<li><code>paegan-transport</code></li>
-<li><code>paegan-viz</code></li>
 <li><code>paegan</code></li>
+<li><code>paegan-viz</code></li>
+<li><code>paegan-transport</code></li>
 <li><code>sci-wms</code></li>
 <li><code>thredds_crawler_matlab</code></li>
-<li><code>udunitspy</code> (IOOS adopted <code>cf-units</code>)</li>
+<li><code>udunitspy</code> (<code>compliace-checker</code> adopted <code>cf-units</code> instead)</li>
 </ul>
 </section>
 <section id="other-tools-axiom" class="slide level1">
@@ -255,11 +258,11 @@
 <section id="other-tools-axiom-list" class="slide level1">
 <h1>Other Tools (Axiom) list</h1>
 <ul>
+<li><code>pyncml</code></li>
+<li><code>epic2cf</code></li>
+<li><code>wera2netcdf</code></li>
 <li><code>codar2netcdf</code></li>
 <li><code>modflow2netcdf</code></li>
-<li><code>wera2netcdf</code></li>
-<li><code>epic2cf</code></li>
-<li><code>pyncml</code></li>
 </ul>
 </section>
 <section id="other-tools-axiom-continuation" class="slide level1">
@@ -297,7 +300,21 @@
 <li><code>gridded</code></li>
 </ul>
 <div class="fragment">
-<p>… and many more.</p>
+<p>Feel free to add more in the hackpad.</p>
+</div>
+</section>
+<section id="small-aside-best-practices" class="slide level1">
+<h1>Small aside: best practices</h1>
+<ul>
+<li class="fragment">Always have a README file.</li>
+<li class="fragment">Always publish on PyPI.</li>
+<li class="fragment">Always add test with new code.</li>
+<li class="fragment">Auto-publish docs and <code>sdist</code> is a plus.</li>
+<li class="fragment">Adopting <code>black</code> and <code>isort</code> can be daunting at first but pays off in the end.</li>
+<li class="fragment">Should we have an IOOS boilerplate repo?</li>
+</ul>
+<div class="fragment">
+<p>Some of these are part of the <a href="https://www.pyopensci.org/dev_guide/packaging/packaging_guide">PyOpenSci packaging guide</a>.</p>
 </div>
 </section>
 <section id="repositories" class="slide level1">
@@ -320,10 +337,13 @@
 <ul>
 <li class="fragment">Aggressive archiving of repositories to avoid user confusion.</li>
 <li class="fragment">Do not delete so we can revert the archived version if needed.</li>
-<li class="fragment">Add a README.{md.txt,rst} file to all active repositories!</li>
+<li class="fragment">Add a README.{md,txt,rst} file to all active repositories!</li>
 <li class="fragment">Aggregate pages and docs into a sub-org/prefix.</li>
-<li class="fragment">Add Repo Health app.</li>
+<li class="fragment">Add Repo Health app: <a href="https://repohealth.info">https://repohealth.info</a>.</li>
 </ul>
+<div class="fragment">
+<p><a href="https://repohealth.info/report/pyoceans/python-ctd">https://repohealth.info/report/pyoceans/python-ctd</a></p>
+</div>
 </section>
 <section id="code-gallery" class="slide level1">
 <h1>Code gallery</h1>
@@ -332,7 +352,7 @@
 </section>
 <section id="pyviz-demo" class="slide level1">
 <h1>PyViz demo</h1>
-<p><a href="https://mybinder.org/v2/gh/ocefpaf/2019-DMAC/master?filepath=notebooks/GreatLakes_Dashboard.ipynb"> <img src="images/jupyterhub.svg" height=75 style="background-color:white"> </a></p>
+<p><a href="https://mybinder.org/v2/gh/ocefpaf/2019-DMAC/gh-pages?filepath=notebooks/GreatLakes_Dashboard.ipynb"> <img src="images/jupyterhub.svg" height=75 style="background-color:white"> </a></p>
 </section>
 <section id="end" class="slide level1">
 <h1>end</h1>

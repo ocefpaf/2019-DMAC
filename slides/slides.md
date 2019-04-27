@@ -7,17 +7,21 @@ date: May 1, 2018
 
 # Longer title
 
-The State of IOOS **(and some non-IOOS Python)** tools **(and its 105 repositories!?)**
+The State of IOOS **(and some non-IOOS)** **(Python)** tools **(and its 105 repositories!?)**
 
 # `whoami`
 
-Filipe Fernandes
+[ocefpaf]((https://github.com/ocefpaf))
 
 >- Physical Oceanographer
 >- Data Plumber
 >- Code Janitor
 >- CI babysitter
 >- Amazon-Dash-Button for conda-forge
+
+. . .
+
+I'll probably have to add "GH Marie Kondo" after this presentation.
 
 # Some background
 
@@ -27,41 +31,44 @@ Filipe Fernandes
 >- year 04: CIs maintenance, some Data Demo Center, less new tools, packaging.
 >- year 05: CIs maintenance, Data Demo Center(?), new tools(?), packaging.
 
-# Motivation
 
+
+# Goals
+
+>- Streamline CI maintenance (2-3 times a year we re-do the CIs configurations).
+>- Reduce the overall maintenance burden.
+>- Focus on the essential tools, deprecate what is not used.
 >- What tools are ready for Python 2.7 EOL?
->- CI maintenance burden (2-3 times a year we need to re-do the CIs configurations).
->- Focus on the "good and useful" tools.
-
-. . .
-
-Secret motivation: make year 06 all about new tools and the Data Demo Center!
 
 . . .
 
 Spoiler: our tools are 100% py3k compatible!
 
-# Goals
+# Goals (continued)
 
->- Reduce the maintenance burden.
->- Focus on the essential tools.
->- identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?)
+>- Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?).
 >- Increase the "bus" factor by making it easier for newcomers.
 >- Create a policy for releases, *sdist* publication, and packaging.
+
+. . .
+
+Secret motivation: make year 06 all about new tools and the Data Demo Center!
+
 
 # How?
 
 >- Finding the active and inactive projects and deprecating the latter.
 >- Consolidate similar tools.
 >- Adding auto-PyPI *sdist* publication.
->- Adopt RERO
+>- Adopt a Release Early Release Often (RERO) policy.
+>- Write documentation of GH good practices.
 
 # IOOS tools "health metric"
 
 [https://bit.ly/2019-DMAC](https://bit.ly/2019-DMAC)
 
 >- The data was collected on April 27th 2019.
->- The metric is based on: last commit, last release, contributors, py3k testing
+>- The metric is based on: last commit, last release, number contributors, and py3k testing
 
 # IOOS tools
 
@@ -74,10 +81,10 @@ Spoiler: our tools are 100% py3k compatible!
 | pyoos              | 2019-02-24  | 2017-03-30   | 11           | py35         |
 | ciso               | 2019-02-07  | 2019-02-07   | 2            | py37         |
 | cc-plugin-ncei     | 2019-01-16  | 2017-10-17   | 4            | py36         |
-| thredds_crawler    | 2018-03-16  | 2018-03-16   | 5            | py36         |
 | sensorml2iso       | 2018-09-12  | 2018-08-22   | 6            | py36         |
-| odvc               | 2018-03-02  | 2018-03-02   | 3            | py36         |
-| petulant-bear      | 2016-02-03  | 2016-02-03   | 6            | py37         |
+| odvc               | 2019-04-27  | 2018-03-02   | 3            | py37         |
+| thredds_crawler    | 2018-03-16  | 2018-03-16   | 5            | py36         |
+| petulant-bear      | 2016-02-03  | 2016-02-03   | 6            | py35         |
 | wicken             | 2016-02-03  | 2016-02-03   | 5            | py35         |
 | qartod             | 2016-14-14  | NA           | 4            | py35         |
 | cc-plugin-sgrid    | 2016-02-04  | NA           | 1            | py35         |
@@ -92,23 +99,23 @@ Spoiler: our tools are 100% py3k compatible!
 . . .
 
 There are more [tools in the pyoceans org](https://github.com/pyoceans).
-I only listed those that I know are used in IOOS.
+I only listed those that I know are used by IOOS in some places.
 
-# Other Tools (RPS)
+# Other Tools (ASA-RPS)
 
 WARNING: This list is not comprehensive!
 Also, we are not expecting any action from ASA-RPS!
 The goal is to identify what tools here are important to the IOOS community!
 
-# Other Tools (RPS) list
+# Other Tools (ASA-RPS) list
 
 - `qartod` (not a rare pókemon)
-- `paegan-transport`
-- `paegan-viz`
 - `paegan`
+- `paegan-viz`
+- `paegan-transport`
 - `sci-wms`
 - `thredds_crawler_matlab`
-- `udunitspy` (IOOS adopted `cf-units`)
+- `udunitspy` (`compliace-checker` adopted `cf-units` instead)
 
 
 # Other Tools (Axiom)
@@ -119,11 +126,11 @@ The goal is to identify what tools here are used and important to the IOOS commu
 
 # Other Tools (Axiom) list
 
+- `pyncml`
+- `epic2cf`
+- `wera2netcdf`
 - `codar2netcdf`
 - `modflow2netcdf`
-- `wera2netcdf`
-- `epic2cf`
-- `pyncml`
 
 # Other Tools (Axiom) continuation
 
@@ -156,8 +163,20 @@ The goal is to identify what tools here are used and important to the IOOS commu
 
 . . .
 
-... and many more.
+Feel free to add more in the hackpad.
 
+# Small aside: best practices
+
+>- Always have a README file.
+>- Always publish on PyPI.
+>- Always add test with new code.
+>- Auto-publish docs and `sdist` is a plus.
+>- Adopting `black` and `isort` can be daunting at first but pays off in the end.
+>- Should we have an IOOS boilerplate repo?
+
+. . .
+
+Some of these are part of the [PyOpenSci packaging guide](https://www.pyopensci.org/dev_guide/packaging/packaging_guide).
 
 # Repositories
 
@@ -176,9 +195,13 @@ The goal is to identify what tools here are used and important to the IOOS commu
 
 >- Aggressive archiving of repositories to avoid user confusion.
 >- Do not delete so we can revert the archived version if needed.
->- Add a README.{md.txt,rst} file to all active repositories!
+>- Add a README.{md,txt,rst} file to all active repositories!
 >- Aggregate pages and docs into a sub-org/prefix.
->- Add Repo Health app.
+>- Add Repo Health app: [https://repohealth.info](https://repohealth.info).
+
+. . .
+
+[https://repohealth.info/report/pyoceans/python-ctd](https://repohealth.info/report/pyoceans/python-ctd)
 
 
 # Code gallery
@@ -190,7 +213,7 @@ The goal is to identify what tools here are used and important to the IOOS commu
 # PyViz demo
 
 
-<a href="https://mybinder.org/v2/gh/ocefpaf/2019-DMAC/master?filepath=notebooks/GreatLakes_Dashboard.ipynb">
+<a href="https://mybinder.org/v2/gh/ocefpaf/2019-DMAC/gh-pages?filepath=notebooks/GreatLakes_Dashboard.ipynb">
   <img src="images/jupyterhub.svg" height=75 style="background-color:white">
 </a>
 
