@@ -9,6 +9,7 @@ date: May 1, 2018
 
 The State of IOOS **(and some non-IOOS)** **(Python)** tools **(and its 105 repositories!?)**
 
+
 # `whoami`
 
 [ocefpaf]((https://github.com/ocefpaf))
@@ -17,11 +18,12 @@ The State of IOOS **(and some non-IOOS)** **(Python)** tools **(and its 105 repo
 >- Data Plumber
 >- Code Janitor
 >- CI babysitter
->- Amazon-Dash-Button for conda-forge
+>- Amazon-Dash-Button for conda-forge packaging
 
 . . .
 
 I'll probably have to add "GH Marie Kondo" after this presentation.
+
 
 # Some background
 
@@ -32,22 +34,22 @@ I'll probably have to add "GH Marie Kondo" after this presentation.
 >- year 05: CIs maintenance, Data Demo Center(?), new tools(?), packaging.
 
 
-
 # Goals
 
->- Streamline CI maintenance (2-3 times a year we re-do the CIs configurations).
->- Reduce the overall maintenance burden.
+>- Streamline CI maintenance, e.g.: compliance-checker plugins.
 >- Focus on the essential tools, deprecate what is not used.
+>- Reduce the overall maintenance burden.
 >- What tools are ready for Python 2.7 EOL?
 
 . . .
 
 Spoiler: our tools are 100% py3k compatible!
 
+
 # Goals (continued)
 
 >- Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?).
->- Increase the "bus" factor by making it easier for newcomers.
+>- Increase the "bus" factor and lower the barrier for newcomers.
 >- Create a policy for releases, *sdist* publication, and packaging.
 
 . . .
@@ -63,12 +65,14 @@ Secret motivation: make year 06 all about new tools and the Data Demo Center!
 >- Adopt a Release Early Release Often (RERO) policy.
 >- Write documentation of GH good practices.
 
+
 # IOOS tools "health metric"
 
 [https://bit.ly/2019-DMAC](https://bit.ly/2019-DMAC)
 
->- The data was collected on April 27th 2019.
+>- The data was collected on April 27th 2019 (4 days ago).
 >- The metric is based on: last commit, last release, number contributors, and py3k testing
+
 
 # IOOS tools
 
@@ -77,7 +81,7 @@ Secret motivation: make year 06 all about new tools and the Data Demo Center!
 | compliance-checker | 2019-04-24  | 2019-02-27   | 28           | py37         |
 | erddapy            | 2019-04-21  | 2019-03-06   | 3            | py37         |
 | cc-plugin-glider   | 2019-02-20  | 2019-02-20   | 8            | py36         |
-| cc-plugin-ugrid    | 2019-01-09  | 2019-01-09   | 5            | py36         |
+| cc-checker-ugrid   | 2019-01-09  | 2019-01-09   | 5            | py36         |
 | pyoos              | 2019-02-24  | 2017-03-30   | 11           | py35         |
 | ciso               | 2019-02-07  | 2019-02-07   | 2            | py37         |
 | cc-plugin-ncei     | 2019-01-16  | 2017-10-17   | 4            | py36         |
@@ -88,6 +92,7 @@ Secret motivation: make year 06 all about new tools and the Data Demo Center!
 | wicken             | 2016-02-03  | 2016-02-03   | 5            | py35         |
 | qartod             | 2016-14-14  | NA           | 4            | py35         |
 | cc-plugin-sgrid    | 2016-02-04  | NA           | 1            | py35         |
+
 
 # Other Tools (pyoceans)
 
@@ -101,11 +106,13 @@ Secret motivation: make year 06 all about new tools and the Data Demo Center!
 There are more [tools in the pyoceans org](https://github.com/pyoceans).
 I only listed those that I know are used by IOOS in some places.
 
+
 # Other Tools (ASA-RPS)
 
 WARNING: This list is not comprehensive!
 Also, we are not expecting any action from ASA-RPS!
 The goal is to identify what tools here are useful to the IOOS community!
+
 
 # Other Tools (ASA-RPS) list
 
@@ -124,6 +131,7 @@ WARNING: This list is not comprehensive!
 Also, we are not expecting any action from Axiom!
 The goal is to identify what tools here are useful to the IOOS community!
 
+
 # Other Tools (Axiom) list
 
 - `pyncml`
@@ -133,52 +141,56 @@ The goal is to identify what tools here are useful to the IOOS community!
 - `modflow2netcdf`
 - `gutils` (lives in the SECOORA organization)
 
+
 # Other Tools (Axiom) continuation
 
 - `pygc`
-- `sci-wms` (déjà vu)
-- `pyaxiom` (predecessor of `pocean-core`)
-- `ioos_qc` (`qartod` pókemon evolved form)
 - `pngpack`
-- ``
+- `pyaxiom` (predecessor of `pocean-core`)
+- `sci-wms` (déjà vu)
+- `ioos_qc` (`qartod` pókemon evolved form)
+
 
 # Other-Other Tools
 
 - MetOffice stack: `iris`, `cartopy`, `nc-time-axis`, and `cf-units`
 - PyViz: `bokeh`, `panel`, `hvplot`
-- `bagit`
+- `matplotlib`
+- `windrose`
 - `folium`
 - `geopandas`
 - `gsw`
-- `matplotlib`
-- `nco`
+- `utide`
+
 
 # Other-Other Tools (continuation)
 
+- `nco`
 - `netcdf4`
 - `pysgrid`
 - `pyugrid`
-- `utide`
-- `windrose`
-- `xarray`
 - `gridded`
+- `xarray`
+- `bagit`
 
 . . .
 
 Feel free to add more in the hackpad.
 
+
 # Small aside: best practices
 
 >- Always have a README file.
->- Always publish on PyPI.
->- Always add test with new code.
+>- Always publish on PyPI (conda-forge will be updated automatically).
 >- Auto-publish docs and `sdist` is a plus.
->- Adopting `black` and `isort` can be daunting at first but pays off in the end.
+>- Always add test with new code.
+>- Adopting `flake8`, `black` and `isort` can be daunting at first but pays off in the end.
 >- Should we have an IOOS boilerplate repo?
 
 . . .
 
 Some of these are part of the [PyOpenSci packaging guide](https://www.pyopensci.org/dev_guide/packaging/packaging_guide).
+
 
 # Repositories
 
@@ -193,10 +205,11 @@ Some of these are part of the [PyOpenSci packaging guide](https://www.pyopensci.
 - configuration-management
 - configuration-management-hugo
 
+
 # Repository clean-up Recommendations
 
 >- Aggressive archiving of repositories to avoid user confusion.
->- Do not delete so we can revert the archived version if needed.
+>- Do not delete! Deletions are not reversible!
 >- Add a README.{md,txt,rst} file to all active repositories!
 >- Aggregate pages and docs into a sub-org/prefix.
 >- Add Repo Health app: [https://repohealth.info](https://repohealth.info).
@@ -211,6 +224,7 @@ Some of these are part of the [PyOpenSci packaging guide](https://www.pyopensci.
 <img src="images/code-gallery.png" height=450>
 
 [http://ioos.github.io/notebooks_demos/code_gallery](http://ioos.github.io/notebooks_demos/code_gallery)
+
 
 # PyViz demo
 

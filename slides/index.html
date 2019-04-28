@@ -52,7 +52,7 @@
 <li class="fragment">Data Plumber</li>
 <li class="fragment">Code Janitor</li>
 <li class="fragment">CI babysitter</li>
-<li class="fragment">Amazon-Dash-Button for conda-forge</li>
+<li class="fragment">Amazon-Dash-Button for conda-forge packaging</li>
 </ul>
 <div class="fragment">
 <p>I’ll probably have to add “GH Marie Kondo” after this presentation.</p>
@@ -71,9 +71,9 @@
 <section id="goals" class="slide level1">
 <h1>Goals</h1>
 <ul>
-<li class="fragment">Streamline CI maintenance (2-3 times a year we re-do the CIs configurations).</li>
-<li class="fragment">Reduce the overall maintenance burden.</li>
+<li class="fragment">Streamline CI maintenance, e.g.: compliance-checker plugins.</li>
 <li class="fragment">Focus on the essential tools, deprecate what is not used.</li>
+<li class="fragment">Reduce the overall maintenance burden.</li>
 <li class="fragment">What tools are ready for Python 2.7 EOL?</li>
 </ul>
 <div class="fragment">
@@ -84,7 +84,7 @@
 <h1>Goals (continued)</h1>
 <ul>
 <li class="fragment">Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?).</li>
-<li class="fragment">Increase the “bus” factor by making it easier for newcomers.</li>
+<li class="fragment">Increase the “bus” factor and lower the barrier for newcomers.</li>
 <li class="fragment">Create a policy for releases, <em>sdist</em> publication, and packaging.</li>
 </ul>
 <div class="fragment">
@@ -105,7 +105,7 @@
 <h1>IOOS tools “health metric”</h1>
 <p><a href="https://bit.ly/2019-DMAC">https://bit.ly/2019-DMAC</a></p>
 <ul>
-<li class="fragment">The data was collected on April 27th 2019.</li>
+<li class="fragment">The data was collected on April 27th 2019 (4 days ago).</li>
 <li class="fragment">The metric is based on: last commit, last release, number contributors, and py3k testing</li>
 </ul>
 </section>
@@ -144,7 +144,7 @@
 <td>py36</td>
 </tr>
 <tr class="even">
-<td>cc-plugin-ugrid</td>
+<td>cc-checker-ugrid</td>
 <td>2019-01-09</td>
 <td>2019-01-09</td>
 <td>5</td>
@@ -270,11 +270,10 @@
 <h1>Other Tools (Axiom) continuation</h1>
 <ul>
 <li><code>pygc</code></li>
-<li><code>sci-wms</code> (déjà vu)</li>
-<li><code>pyaxiom</code> (predecessor of <code>pocean-core</code>)</li>
-<li><code>ioos_qc</code> (<code>qartod</code> pókemon evolved form)</li>
 <li><code>pngpack</code></li>
-<li>``</li>
+<li><code>pyaxiom</code> (predecessor of <code>pocean-core</code>)</li>
+<li><code>sci-wms</code> (déjà vu)</li>
+<li><code>ioos_qc</code> (<code>qartod</code> pókemon evolved form)</li>
 </ul>
 </section>
 <section id="other-other-tools" class="slide level1">
@@ -282,24 +281,24 @@
 <ul>
 <li>MetOffice stack: <code>iris</code>, <code>cartopy</code>, <code>nc-time-axis</code>, and <code>cf-units</code></li>
 <li>PyViz: <code>bokeh</code>, <code>panel</code>, <code>hvplot</code></li>
-<li><code>bagit</code></li>
+<li><code>matplotlib</code></li>
+<li><code>windrose</code></li>
 <li><code>folium</code></li>
 <li><code>geopandas</code></li>
 <li><code>gsw</code></li>
-<li><code>matplotlib</code></li>
-<li><code>nco</code></li>
+<li><code>utide</code></li>
 </ul>
 </section>
 <section id="other-other-tools-continuation" class="slide level1">
 <h1>Other-Other Tools (continuation)</h1>
 <ul>
+<li><code>nco</code></li>
 <li><code>netcdf4</code></li>
 <li><code>pysgrid</code></li>
 <li><code>pyugrid</code></li>
-<li><code>utide</code></li>
-<li><code>windrose</code></li>
-<li><code>xarray</code></li>
 <li><code>gridded</code></li>
+<li><code>xarray</code></li>
+<li><code>bagit</code></li>
 </ul>
 <div class="fragment">
 <p>Feel free to add more in the hackpad.</p>
@@ -309,10 +308,10 @@
 <h1>Small aside: best practices</h1>
 <ul>
 <li class="fragment">Always have a README file.</li>
-<li class="fragment">Always publish on PyPI.</li>
-<li class="fragment">Always add test with new code.</li>
+<li class="fragment">Always publish on PyPI (conda-forge will be updated automatically).</li>
 <li class="fragment">Auto-publish docs and <code>sdist</code> is a plus.</li>
-<li class="fragment">Adopting <code>black</code> and <code>isort</code> can be daunting at first but pays off in the end.</li>
+<li class="fragment">Always add test with new code.</li>
+<li class="fragment">Adopting <code>flake8</code>, <code>black</code> and <code>isort</code> can be daunting at first but pays off in the end.</li>
 <li class="fragment">Should we have an IOOS boilerplate repo?</li>
 </ul>
 <div class="fragment">
@@ -338,7 +337,7 @@
 <h1>Repository clean-up Recommendations</h1>
 <ul>
 <li class="fragment">Aggressive archiving of repositories to avoid user confusion.</li>
-<li class="fragment">Do not delete so we can revert the archived version if needed.</li>
+<li class="fragment">Do not delete! Deletions are not reversible!</li>
 <li class="fragment">Add a README.{md,txt,rst} file to all active repositories!</li>
 <li class="fragment">Aggregate pages and docs into a sub-org/prefix.</li>
 <li class="fragment">Add Repo Health app: <a href="https://repohealth.info">https://repohealth.info</a>.</li>
