@@ -45,6 +45,7 @@ Please take a look at the list below and add your comment with the following top
 - **pyaxiom**:
 - **ioos_qc**:
 - **pngpack**:
+- **gutils**:
 
 ### ASA-RPS
 

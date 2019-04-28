@@ -105,7 +105,7 @@ I only listed those that I know are used by IOOS in some places.
 
 WARNING: This list is not comprehensive!
 Also, we are not expecting any action from ASA-RPS!
-The goal is to identify what tools here are important to the IOOS community!
+The goal is to identify what tools here are useful to the IOOS community!
 
 # Other Tools (ASA-RPS) list
 
@@ -122,7 +122,7 @@ The goal is to identify what tools here are important to the IOOS community!
 
 WARNING: This list is not comprehensive!
 Also, we are not expecting any action from Axiom!
-The goal is to identify what tools here are used and important to the IOOS community!
+The goal is to identify what tools here are useful to the IOOS community!
 
 # Other Tools (Axiom) list
 
@@ -131,6 +131,7 @@ The goal is to identify what tools here are used and important to the IOOS commu
 - `wera2netcdf`
 - `codar2netcdf`
 - `modflow2netcdf`
+- `gutils` (lives in the SECOORA organization)
 
 # Other Tools (Axiom) continuation
 
@@ -139,6 +140,7 @@ The goal is to identify what tools here are used and important to the IOOS commu
 - `pyaxiom` (predecessor of `pocean-core`)
 - `ioos_qc` (`qartod` pókemon evolved form)
 - `pngpack`
+- ``
 
 # Other-Other Tools
 
