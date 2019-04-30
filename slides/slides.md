@@ -48,7 +48,7 @@ Spoiler: our tools are 100% py3k compatible!
 
 # Goals (continued)
 
->- Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa?).
+>- Identify gaps in our tools and/or if we need new ones to deal with new challenges (bio-obis-taxa? EML checker?).
 >- Increase the "bus" factor and lower the barrier for newcomers.
 >- Create a policy for releases, *sdist* publication, and packaging.
 
@@ -199,12 +199,10 @@ Some of these are part of the [PyOpenSci packaging guide](https://www.pyopensci.
 - catalog-docker-ckan-harvest
 - catalog-docker-pycsw
 - comt
-- comt-landing
 - comt_1_archive
 - comt_2
 - configuration-management
 - configuration-management-hugo
-
 
 # Repository clean-up Recommendations
 
