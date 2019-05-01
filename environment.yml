@@ -12,4 +12,3 @@ dependencies:
   - numpy
   - panel
   - xarray
-  - rise
